@@ -1,24 +1,41 @@
 programa {
+  
   inclua biblioteca Matematica --> mat
+
   funcao inicio() {
-    real peso, altura, potencia, imc
 
-    escreva("Digite seu peso (Kg): ")
-    leia(peso)
+    real altura, peso, imc
 
-    escreva("\nDigite sua altura (m): ")
+    escreva("Digite sua Altura: ")
     leia(altura)
 
-    potencia = mat.potencia (altura, 2.0)
+    escreva("Digite seu Peso: ")
+    leia(peso)
 
-    imc = peso / potencia
-    se (imc > 25)
-    {
-      escreva("\nSeu IMC é: ", imc, "; Acima do peso.")
+    imc = peso / (altura * altura)
+
+    se(imc<18.5) {
+      escreva("Seu IMC está em ",imc , " Abaixo do peso")
     }
-    senao
-    {
-      escreva("\nSeu IMC é: ", imc, "; Normal.")
+
+    senao se(imc<25) {
+      escreva("Seu IMC está em ",imc , " Peso normal")
+    }
+
+    senao se(imc<30) {
+      escreva("Seu IMC está em ",imc , " Sobrepeso")
+    }
+
+    senao se(imc<35) {
+      escreva("Seu IMC está em ",imc , " Obesidade Grau I")
+    }
+
+    senao se(imc<40) {
+      escreva("Seu IMC está em ",imc , " Obesidade Grau II")
+    }
+
+    senao se(imc >= 40) {
+      escreva("Seu IMC está em ",imc , " Obesidade Mórbida")
     }
   }
 }
